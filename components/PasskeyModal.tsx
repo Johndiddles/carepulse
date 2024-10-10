@@ -2,25 +2,22 @@
 import {
   AlertDialog,
   AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import {
   InputOTP,
   InputOTPGroup,
-  InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { decryptKey, encryptKey } from "@/lib/utils";
 
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { MouseEvent, use, useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 const PasskeyModal = () => {
   const router = useRouter();
@@ -47,7 +44,7 @@ const PasskeyModal = () => {
         setOpen(true);
       }
     }
-  }, [existingKey]);
+  }, [existingKey, path, router]);
 
   const validatePasskey = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
